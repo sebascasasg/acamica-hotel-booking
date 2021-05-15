@@ -3,7 +3,7 @@
 // Utilizamos fechas dinámicas para que la aplicación siempre muestre un rango de días entre la fecha actual y el futuro.
 
 const today = new Date()
-const hotelsData = [
+export const data = [
   {
     slug: 'la-bamba-de-areco',
     name: 'La Bamba de Areco',
@@ -14,7 +14,7 @@ const hotelsData = [
     rooms: 11,
     city: 'Buenos Aires',
     country: 'Argentina',
-    price: 4
+    price: 4,
   },
   {
     slug: 'sainte-jeanne',
@@ -26,7 +26,7 @@ const hotelsData = [
     rooms: 23,
     city: 'Mar del Plata',
     country: 'Argentina',
-    price: 2
+    price: 2,
   },
   {
     slug: 'entre-cielos',
@@ -38,67 +38,71 @@ const hotelsData = [
     rooms: 16,
     city: 'Mendoza',
     country: 'Argentina',
-    price: 4
+    price: 4,
   },
   {
     slug: 'huacalera',
     name: 'Hotel Huacalera',
     photo: './images/huacalera.jpg',
-    description: 'Esta casona neocolonial, construida en la década de 1940, está ubicada en el corazón de la Quebrada de Humahuaca, un extenso valle rodeado de imponentes cadenas montañosas, recorrido por el Río Grande y declarado Patrimonio de la Humanidad en 2003.',
+    description:
+      'Esta casona neocolonial, construida en la década de 1940, está ubicada en el corazón de la Quebrada de Humahuaca, un extenso valle rodeado de imponentes cadenas montañosas, recorrido por el Río Grande y declarado Patrimonio de la Humanidad en 2003.',
     availabilityFrom: today.valueOf() + 1728000000, // 20 days
     availabilityTo: today.valueOf() + 2592000000, // 30 days
     rooms: 32,
     city: 'Jujuy',
     country: 'Argentina',
-    price: 1
+    price: 1,
   },
   {
     slug: 'merced-del-alto',
     name: 'La Merced del Alto',
     photo: './images/merced-del-alto.jpg',
-    description: 'Al pie del Nevado de Cachi, La Merced del Alto se destaca sobre el pintoresco valle rodeado de cerros, ríos y arroyos. Dominando sobre lo alto, el hotel y sus imponentes vistas invitan a explorar los Valle Calchaquíes o simplemente a disfrutar de la paz del lugar.',
+    description:
+      'Al pie del Nevado de Cachi, La Merced del Alto se destaca sobre el pintoresco valle rodeado de cerros, ríos y arroyos. Dominando sobre lo alto, el hotel y sus imponentes vistas invitan a explorar los Valle Calchaquíes o simplemente a disfrutar de la paz del lugar.',
     availabilityFrom: today.valueOf(),
     availabilityTo: today.valueOf() + 432000000, // 5 days
     rooms: 14,
     city: 'Salta',
     country: 'Argentina',
-    price: 2
+    price: 2,
   },
   {
     slug: 'azur-real',
     name: 'Azur Real Hotel',
     photo: './images/azur-real.jpg',
     description: 'La exclusividad rodeada de historia. Azur Real Hotel Boutique está ubicado en el corazón de la zona comercial y el centro histórico de Córdoba, dentro de uno de los principales circuitos culturales y turísticos de la ciudad.',
-    availabilityFrom: today.valueOf() + 1296000000, // 15 days 
+    availabilityFrom: today.valueOf() + 1296000000, // 15 days
     availabilityTo: today.valueOf() + 2592000000, // 30 days
     rooms: 16,
     city: 'Córdoba',
     country: 'Argentina',
-    price: 1
+    price: 1,
   },
   {
     slug: 'rincon-del-socorro',
     name: 'Rincón del Socorro',
     photo: './images/rincon-del-socorro.jpg',
-    description: 'Rincón del Socorro es una estancia ubicada en la reserva natural de los Esteros del Iberá, un santuario de vida silvestre, donde la Fundación Conservation Land Trust decidió desarrollar un ambicioso proyecto de recuperación y conservación.',
+    description:
+      'Rincón del Socorro es una estancia ubicada en la reserva natural de los Esteros del Iberá, un santuario de vida silvestre, donde la Fundación Conservation Land Trust decidió desarrollar un ambicioso proyecto de recuperación y conservación.',
     availabilityFrom: today.valueOf() + 432000000, // 5 days
     availabilityTo: today.valueOf() + 1296000000, // 15 days
     rooms: 11,
     city: 'Corrientes',
     country: 'Argentina',
-    price: 2
+    price: 2,
   },
   {
     slug: 'luma-casa-de-montana',
     name: 'Luma Casa de Montaña',
     photo: './images/luma-casa-de-montana.jpg',
-    description: 'Emplazada en un entorno natural a orillas del lago Nahuel Huapi y con la imponente imagen de la Cordillera de Los Andes, Luma Casa de Montaña se presenta majestuosa pero a la vez simple y hogareña: un lugar diferente, atemporal y mágico.',
+    description:
+      'Emplazada en un entorno natural a orillas del lago Nahuel Huapi y con la imponente imagen de la Cordillera de Los Andes, Luma Casa de Montaña se presenta majestuosa pero a la vez simple y hogareña: un lugar diferente, atemporal y mágico.',
     availabilityFrom: today.valueOf(),
     availabilityTo: today.valueOf() + 1296000000, // 15 days
     rooms: 8,
     city: 'Villa La Angostura',
     country: 'Argentina',
-    price: 2
+    price: 2,
   },
   {
     slug: 'casa-turquesa',
@@ -110,7 +114,7 @@ const hotelsData = [
     rooms: 9,
     city: 'Río de Janeiro',
     country: 'Brasil',
-    price: 3
+    price: 3,
   },
   {
     slug: 'vila-da-santa',
@@ -122,31 +126,33 @@ const hotelsData = [
     rooms: 19,
     city: 'Buzios',
     country: 'Brasil',
-    price: 3
+    price: 3,
   },
   {
     slug: 'uxua-casa',
     name: 'UXUA Casa Hotel & Spa',
     photo: './images/uxua-casa.jpg',
-    description: 'UXUA Casa Hotel & Spa es un hotel boutique cinco estrellas reconocido mundialmente por su incomparable belleza tropical, el maravilloso bar con vista al mar, el galardonado restaurante, un gimnasio totalmente equipado y el inigualable spa Almescar que ofrece innovadores tratamientos con ingredientes extraídos de la selva.',
+    description:
+      'UXUA Casa Hotel & Spa es un hotel boutique cinco estrellas reconocido mundialmente por su incomparable belleza tropical, el maravilloso bar con vista al mar, el galardonado restaurante, un gimnasio totalmente equipado y el inigualable spa Almescar que ofrece innovadores tratamientos con ingredientes extraídos de la selva.',
     availabilityFrom: today.valueOf(),
     availabilityTo: today.valueOf() + 864000000, // 10 days
     rooms: 11,
     city: 'Bahía',
     country: 'Brasil',
-    price: 4
+    price: 4,
   },
   {
     slug: 'ponta-dos-ganchos',
     name: 'Ponta dos Ganchos',
     photo: './images/uxua-casa.jpg',
-    description: 'Ubicado a pasos de San Pablo, Río de Janeiro, e incluso Buenos Aires, en una península privada y rodeado por un pintoresco pueblo de pescadores, se encuentra Ponta dos Ganchos, uno de los resorts de playa más exclusivos del sur de Brasil.',
+    description:
+      'Ubicado a pasos de San Pablo, Río de Janeiro, e incluso Buenos Aires, en una península privada y rodeado por un pintoresco pueblo de pescadores, se encuentra Ponta dos Ganchos, uno de los resorts de playa más exclusivos del sur de Brasil.',
     availabilityFrom: today.valueOf() + 432000000, // 5 days
     availabilityTo: today.valueOf() + 864000000, // 10 days
     rooms: 25,
     city: 'Santa Catarina',
     country: 'Brasil',
-    price: 4
+    price: 4,
   },
   {
     slug: 'alto-atacama',
@@ -158,31 +164,33 @@ const hotelsData = [
     rooms: 42,
     city: 'San Pedro de Atacama',
     country: 'Chile',
-    price: 4
+    price: 4,
   },
   {
     slug: 'tierra-patagonia',
     name: 'Tierra Patagonia',
     photo: './images/tierra-patagonia.jpg',
-    description: 'Tierra Patagonia Hotel & Spa es un lujoso hotel boutique ubicado en la Patagonia chilena a orillas del lago Sarmiento, envuelto en el extraordinario escenario natural de Torres del Paine, un parque nacional rodeado de montañas, cascadas, glaciares, lagos y peñascos, declarado Reserva de la Biosfera por la UNESCO en 1978.',
+    description:
+      'Tierra Patagonia Hotel & Spa es un lujoso hotel boutique ubicado en la Patagonia chilena a orillas del lago Sarmiento, envuelto en el extraordinario escenario natural de Torres del Paine, un parque nacional rodeado de montañas, cascadas, glaciares, lagos y peñascos, declarado Reserva de la Biosfera por la UNESCO en 1978.',
     availabilityFrom: today.valueOf() + 2592000000, // 30 days
     availabilityTo: today.valueOf() + 3456000000, // 40 days
     rooms: 40,
     city: 'Torres del Paine',
     country: 'Chile',
-    price: 4
+    price: 4,
   },
   {
     slug: 'vira-vira',
     name: 'Vira Vira',
     photo: './images/vira-vira.jpg',
-    description: 'Hotel Hacienda Vira Vira Relais & Chateaux se encuentra en una ubicación privilegiada, muy cerca de Pucón, Chile. Su impresionante parque nativo de 23 hectáreas a orillas del río Liucura ofrece un oasis único de paz y tranquilidad.',
+    description:
+      'Hotel Hacienda Vira Vira Relais & Chateaux se encuentra en una ubicación privilegiada, muy cerca de Pucón, Chile. Su impresionante parque nativo de 23 hectáreas a orillas del río Liucura ofrece un oasis único de paz y tranquilidad.',
     availabilityFrom: today.valueOf() + 864000000, // 10 days
     availabilityTo: today.valueOf() + 1728000000, // 20 days
     rooms: 21,
     city: 'Pucón',
     country: 'Chile',
-    price: 4
+    price: 4,
   },
   {
     slug: 'vik-chile',
@@ -194,7 +202,7 @@ const hotelsData = [
     rooms: 22,
     city: 'Millahue',
     country: 'Chile',
-    price: 4
+    price: 4,
   },
   {
     slug: 'casa-higueras',
@@ -206,7 +214,7 @@ const hotelsData = [
     rooms: 20,
     city: 'Valparaíso',
     country: 'Chile',
-    price: 4
+    price: 4,
   },
   {
     slug: 'campo-tinto',
@@ -218,6 +226,6 @@ const hotelsData = [
     rooms: 4,
     city: 'Colonia',
     country: 'Uruguay',
-    price: 1
-  }
+    price: 1,
+  },
 ]
