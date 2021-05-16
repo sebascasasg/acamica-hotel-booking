@@ -2,7 +2,7 @@ import React from 'react'
 
 function CountryFilter(props) {
   return (
-    <select name='country' onChange={props.handleChange}>
+    <select name='country' value={props.country} onChange={props.onFilterChange}>
       <option value='all'>Todos los países</option>
       <option value='Argentina'>Argentina</option>
       <option value='Brasil'>Brasil</option>

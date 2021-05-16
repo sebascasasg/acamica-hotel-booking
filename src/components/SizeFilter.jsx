@@ -2,7 +2,7 @@ import React from 'react'
 
 function SizeFilter(props) {
   return (
-    <select name='size'>
+    <select name='size' value={props.size} onChange={props.onFilterChange}>
       <option value='all'>Cualquier tamaño</option>
       <option value='small'>Pequeño</option>
       <option value='medium'>Mediano</option>

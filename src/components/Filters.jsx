@@ -10,9 +10,9 @@ function Filters(props) {
       <div className='container mx-auto py-5 flex justify-between'>
         <DateFilter />
         <DateFilter />
-        <CountryFilter handleChange={props.handleChange} />
-        <PriceFilter />
-        <SizeFilter />
+        <CountryFilter onFilterChange={props.onFilterChange} country={props.filters.country} />
+        <PriceFilter onFilterChange={props.onFilterChange} country={props.filters.price} />
+        <SizeFilter onFilterChange={props.onFilterChange} country={props.filters.size} />
       </div>
     </div>
   )
