@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import Filters from './components/Filters.jsx'
+import Header from './components/Header.jsx'
 import Hotels from './components/Hotels.jsx'
-import { data } from './data.js'
+import { data as allHotels } from './data.js'
 
 const initFilters = {
-  country: 'all',
-  price: 'all',
-  size: 'all',
+  country: 'Todos',
+  price: 'Todos',
+  size: 'Todos',
 }
 
 function App() {
-  const [hotelsList, setHotelsList] = useState(data)
+  const [hotelsList, setHotelsList] = useState(allHotels)
   const [filters, setFilters] = useState(initFilters)
 
-  useEffect(() => filterHotelList(filters), [filters])
+  useEffect(() => filterHotelsList(filters), [filters])
 
   const handleFilterChange = ev => {
     const newFilters = { ...filters }
@@ -21,47 +22,48 @@ function App() {
     setFilters(newFilters)
   }
 
-  const filterHotelList = filters => {
-    let newHotelsList = data
-    if (filters.country !== 'all') {
-      newHotelsList = newHotelsList.filter(hotel => hotel.country === filters.country)
-      console.log(newHotelsList)
+  const filterByCountry = (listToFilter, country) => {
+    return listToFilter.filter(hotel => hotel.country === country)
+  }
+
+  const filterByPrice = (listToFilter, price) => {
+    return listToFilter.filter(hotel => hotel.price === price.length)
+  }
+
+  const filterBySize = (listToFilter, size) => {
+    let filterFunction
+    if (size === 'Pequeño') {
+      filterFunction = hotel => hotel.rooms <= 10
+    } else if (size === 'Mediano') {
+      filterFunction = hotel => hotel.rooms > 10 && hotel.rooms <= 20
+    } else if (size === 'Grande') {
+      filterFunction = hotel => hotel.rooms > 20
     }
-    if (filters.price !== 'all') {
-      newHotelsList = newHotelsList.filter(hotel => hotel.price === parseInt(filters.price))
-      console.log(newHotelsList)
+    return listToFilter.filter(filterFunction)
+  }
+
+  const filterHotelsList = filters => {
+    let newHotelsList = allHotels
+    if (filters.country !== 'Todos') {
+      newHotelsList = filterByCountry(newHotelsList, filters.country)
     }
-    if (filters.size !== 'all') {
-      let filterFunction
-      if (filters.size === 'small') {
-        filterFunction = hotel => hotel.rooms <= 10
-      } else if (filters.size === 'medium') {
-        filterFunction = hotel => hotel.rooms > 10 && hotel.rooms <= 20
-      } else if (filters.size === 'big') {
-        filterFunction = hotel => hotel.rooms > 20
-      }
-      newHotelsList = newHotelsList.filter(filterFunction)
+    if (filters.price !== 'Todos') {
+      newHotelsList = filterByPrice(newHotelsList, filters.price)
+    }
+    if (filters.size !== 'Todos') {
+      newHotelsList = filterBySize(newHotelsList, filters.size)
     }
     setHotelsList(newHotelsList)
   }
 
-  /*   const filterByCountry = (list, country) => {
-    return list.filter(item => item.country === country)
-  } */
-
   return (
-    <div>
-      <header className='bg-green-700'>
-        <div className='container mx-auto py-20'>
-          <h1 className='mb-5 text-5xl font-bold'>Hotel Booking</h1>
-          <p className='text-lg'>Búsqueda para hoteles desde el 11 de Febrero de 2020 hasta el 14 de Febrero de 2020 en Uruguay</p>
-        </div>
-        <Filters onFilterChange={handleFilterChange} filters={filters} />
-      </header>
+    <>
+      <Header />
       <main>
+        <Filters onFilterChange={handleFilterChange} filters={filters} />
         <Hotels hotelsList={hotelsList} />
       </main>
-    </div>
+    </>
   )
 }
 

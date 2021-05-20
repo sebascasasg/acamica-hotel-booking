@@ -4,7 +4,7 @@ function HotelCard(props) {
   const hotelInfo = props.info
   return (
     <div className='border border-black rounded-xl overflow-hidden shadow-xl'>
-      <img className='' src={hotelInfo.photo} />
+      <img alt='' src={hotelInfo.photo} />
       <div className='p-5 flex flex-col'>
         <h2 className='mb-3 text-2xl font-bold'>{hotelInfo.name}</h2>
         <p className='mb-3'>{hotelInfo.description}</p>
