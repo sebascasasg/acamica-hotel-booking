@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Filters from './components/Filters.jsx'
 import Header from './components/Header.jsx'
 import Hotels from './components/Hotels.jsx'
-import { data as allHotels } from './data.js'
+import { data as allHotels } from './data/data.js'
 
 const initFilters = {
   country: 'Todos',
@@ -14,6 +14,7 @@ function App() {
   const [hotelsList, setHotelsList] = useState(allHotels)
   const [filters, setFilters] = useState(initFilters)
 
+  // eslint-disable-next-line
   useEffect(() => filterHotelsList(filters), [filters])
 
   const handleFilterChange = ev => {
