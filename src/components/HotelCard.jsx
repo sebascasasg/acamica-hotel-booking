@@ -9,17 +9,17 @@ function HotelCard(props) {
         <h2 className='mb-3 text-2xl font-bold'>{hotelInfo.name}</h2>
         <p className='mb-3'>{hotelInfo.description}</p>
         <div className='mb-3 flex'>
-          <span className='w-8 bg-green-400 rounded-l-md'></span>
-          <span className='p-1 bg-gray-200 rounded-r-md'>
+          <span className='w-8 bg-blue-900 rounded-l-md'></span>
+          <span className='px-3 py-1 bg-gray-200 rounded-r-md'>
             {hotelInfo.city}, {hotelInfo.country}
           </span>
         </div>
         <div className='mb-3 flex'>
-          <span className='w-8 bg-green-400 rounded-l-md'></span>
-          <span className='p-1 bg-gray-200 rounded-r-md'>{hotelInfo.rooms} habitaciones</span>
+          <span className='w-8 bg-blue-900 rounded-l-md'></span>
+          <span className='px-3 py-1 bg-gray-200 rounded-r-md'>{hotelInfo.rooms} habitaciones</span>
         </div>
-        <span className='p-1 mb-3 w-min font-bold bg-green-400 rounded-md'>{'$'.repeat(hotelInfo.price)}</span>
-        <button className='p-2 bg-green-400 rounded-md'>Reservar</button>
+        <span className='px-3 py-1 mb-3 w-min font-bold tracking-widest text-yellow-50 bg-blue-900 rounded-md'>{'$'.repeat(hotelInfo.price)}</span>
+        <button className='p-2 bg-blue-900 rounded-md text-yellow-50 font-bold'>Reservar</button>
       </div>
     </article>
   )
